@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="احصل على أفضل باقة 10 ألعاب PC و PlayStation بسعر 150 درهم فقط بدل 800 درهم. عرض محدود!">
-    <title>🔥 باقة 10 ألعاب بسعر خرافي | عرض محدود</title>
+    <meta name="description" content="احصل على أفضل باقة 10 ألعاب PC و PlayStation بسعر 150 درهم فقط. FC26, RDR2 والمزيد!">
+    <title>🔥 باقة 10 ألعاب | PS5 & Steam | عرض ليموني محدود</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --primary: #ff6a00;
-            --secondary: #ff2e63;
-            --accent: #00eaff;
-            --bg-dark: #0f0c29;
-            --bg-mid: #302b63;
-            --bg-light: #24243e;
-            --glass-bg: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.18);
+            /* --- NEW COLOR SCHEME: NEON LIME & BLACK --- */
+            --primary: #39ff14; /* Electric Lime Neon */
+            --secondary: #32cd32; /* Slightly darker lime */
+            --accent: #adff2f; /* Green-yellow accent */
+            
+            --bg-dark: #000000; /* Pure Black */
+            --bg-mid: #0a0a0a;
+            --bg-light: #111111;
+            
+            /* Adjusted Glass for dark mode - darker and more transparent */
+            --glass-bg: rgba(10, 10, 10, 0.7); 
+            --glass-border: rgba(57, 255, 20, 0.25); /* Lime border */
+            
             --text-main: #ffffff;
-            --text-muted: #cccccc;
+            --text-muted: #b0b0b0;
+            --glow-color: rgba(57, 255, 20, 0.5);
         }
 
         * {
@@ -32,42 +38,48 @@
 
         body {
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, var(--bg-dark), var(--bg-mid), var(--bg-light));
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            /* Solid black background with subtle gradient */
+            background: radial-gradient(circle at center, var(--bg-mid), var(--bg-dark));
             color: var(--text-main);
             overflow-x: hidden;
             position: relative;
+            min-height: 100vh;
         }
 
-        /* Floating Particles Background */
+        /* Floating Particles Background - Subtle Lime */
         .particles {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
             z-index: 0;
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(255, 106, 0, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(0, 234, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 50% 80%, rgba(255, 46, 99, 0.15) 0%, transparent 50%);
+                radial-gradient(circle at 20% 30%, rgba(57, 255, 20, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(173, 255, 47, 0.05) 0%, transparent 50%);
         }
 
         /* Glassmorphism Utility */
         .glass {
             background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
         }
 
         /* Typography */
-        h1, h2, h3 { font-weight: 900; }
+        h1, h2, h3 { font-weight: 900; letter-spacing: -1px; }
         .text-gradient {
-            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+            /* Lime gradient text */
+            background: linear-gradient(to right, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+        }
+        
+        .highlight-lime {
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--glow-color);
         }
 
         section {
@@ -84,27 +96,78 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding-top: 100px;
+            padding-top: 80px; /* Added padding for header space if needed */
+        }
+        
+        .hero-content-wrapper {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (min-width: 992px) {
+             .hero-content-wrapper {
+                flex-direction: row;
+                text-align: right;
+             }
+             .hero-card {
+                 text-align: right;
+                 align-items: flex-start;
+             }
         }
 
         .hero-card {
             padding: 50px 30px;
-            max-width: 800px;
+            max-width: 650px;
             animation: fadeInUP 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(255, 106, 0, 0.5);
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
             color: var(--text-muted);
             margin-bottom: 30px;
             line-height: 1.6;
+        }
+        
+        /* --- Platforms Images (PS5 + Steam) --- */
+        .platforms-visual {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: floating 4s ease-in-out infinite;
+        }
+        
+        .platform-img {
+            position: absolute;
+            transition: all 0.5s ease;
+            filter: drop-shadow(0 0 15px var(--glow-color));
+        }
+        
+        .ps5-controller {
+            width: 70%;
+            z-index: 2;
+            transform: rotate(-15deg) translateX(-20px);
+        }
+        
+        .steam-logo {
+            width: 50%;
+            z-index: 1;
+            opacity: 0.8;
+            transform: rotate(10deg) translate(60px, -60px);
+             filter: drop-shadow(0 0 15px #00adee) hue-rotate(90deg); /* Make steam green-ish */
         }
 
         .price-box {
@@ -112,15 +175,15 @@
             padding: 20px 40px;
             border-radius: 15px;
             margin-bottom: 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--accent);
-            box-shadow: 0 0 20px rgba(0, 234, 255, 0.2);
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
             animation: pulseGlow 2s infinite;
         }
 
         .old-price {
             text-decoration: line-through;
-            color: var(--text-muted);
+            color: #ff2e63; /* Keep red for struck-through price for contrast */
             font-size: 1.2rem;
             display: block;
         }
@@ -128,22 +191,23 @@
         .new-price {
             font-size: 3rem;
             font-weight: 900;
-            color: var(--accent);
-            text-shadow: 0 0 10px var(--accent);
+            color: var(--primary);
+            text-shadow: 0 0 15px var(--primary);
         }
 
         .badge {
-            background: var(--secondary);
-            color: white;
+            background: var(--primary);
+            color: black; /* Black text on lime background */
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: bold;
             display: inline-block;
             margin-bottom: 10px;
+            box-shadow: 0 0 10px var(--glow-color);
         }
 
-        .cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; width: 100%; }
 
         .btn {
             padding: 15px 40px;
@@ -162,62 +226,98 @@
 
         .btn-primary {
             background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
+            color: black; /* Black text on lime button */
             border: none;
-            box-shadow: 0 0 15px var(--primary);
+            box-shadow: 0 0 15px var(--glow-color);
         }
 
         .btn-primary:hover {
             transform: scale(1.05);
             box-shadow: 0 0 30px var(--primary);
+            color: black;
         }
 
         .btn-secondary {
             background: var(--glass-bg);
-            color: white;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
+            color: var(--primary);
+            border: 1px solid var(--primary);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(57, 255, 20, 0.1);
             transform: scale(1.05);
+             box-shadow: 0 0 15px var(--glow-color) inset;
         }
 
-        /* --- Games Section --- */
+        /* --- Games Section with IMAGES --- */
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 50px;
-            text-shadow: 0 0 15px var(--accent);
         }
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
 
         .game-card {
-            padding: 20px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            cursor: default;
+            position: relative;
+            height: 300px; /* Fixed height for image cards */
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border-color: var(--glass-border);
         }
 
-        .game-card i {
-            font-size: 2rem;
-            margin-bottom: 15px;
+        .game-card-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            transition: transform 0.5s ease;
+            filter: grayscale(30%) brightness(0.8); /* Slight darken so neon pops */
+        }
+        
+        .game-card-overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 60%;
+            background: linear-gradient(to top, black, transparent);
+            z-index: 1;
+        }
+
+        .game-card-content {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 2;
+            text-align: right;
+        }
+
+        .game-card h3 {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px black;
+        }
+        
+        .game-platform-icon {
             color: var(--primary);
-            display: block;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px var(--glow-color);
         }
 
         .game-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 234, 255, 0.3);
-            border-color: var(--accent);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(57, 255, 20, 0.2);
+            border-color: var(--primary);
+        }
+        
+        .game-card:hover .game-card-bg {
+            transform: scale(1.1);
+            filter: grayscale(0%) brightness(1);
         }
 
         /* --- Why Choose Us --- */
@@ -232,12 +332,13 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            border-color: rgba(57, 255, 20, 0.1);
         }
 
         .feature-card i {
             font-size: 2rem;
-            color: var(--accent);
-            text-shadow: 0 0 10px var(--accent);
+            color: var(--primary);
+            text-shadow: 0 0 15px var(--primary);
         }
 
         /* --- Steps Section --- */
@@ -272,8 +373,8 @@
                 left: -20px;
                 width: 40px;
                 height: 2px;
-                background: var(--accent);
-                box-shadow: 0 0 10px var(--accent);
+                background: var(--primary);
+                box-shadow: 0 0 10px var(--primary);
             }
         }
 
@@ -288,13 +389,13 @@
         .urgency-banner {
             text-align: center;
             padding: 40px 20px;
-            border-color: var(--secondary);
-            box-shadow: 0 0 30px rgba(255, 46, 99, 0.2);
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.15) inset;
             animation: borderPulse 2s infinite;
         }
 
-        .urgency-banner h2 { color: var(--secondary); margin-bottom: 20px; }
-        .countdown { font-size: 3rem; font-weight: 900; font-family: monospace; color: white; letter-spacing: 5px; }
+        .urgency-banner h2 { color: var(--primary); margin-bottom: 20px; }
+        .countdown { font-size: 3rem; font-weight: 900; font-family: monospace; color: white; letter-spacing: 5px; text-shadow: 0 0 10px var(--primary); }
 
         /* --- Testimonials --- */
         .testimonials-grid {
@@ -303,8 +404,8 @@
             gap: 30px;
         }
 
-        .testimonial-card { padding: 30px; }
-        .stars { color: #ffc107; margin-bottom: 15px; font-size: 1.2rem; }
+        .testimonial-card { padding: 30px; border-color: rgba(57, 255, 20, 0.1); }
+        .stars { color: var(--primary); margin-bottom: 15px; font-size: 1.2rem; text-shadow: 0 0 5px var(--primary); }
 
         /* --- FAQ --- */
         .faq-container {
@@ -332,7 +433,8 @@
 
         summary::-webkit-details-marker { display: none; }
         
-        details[open] summary { margin-bottom: 15px; color: var(--accent); }
+        details[open] summary { margin-bottom: 15px; color: var(--primary); }
+        details[open] i { transform: rotate(180deg); }
         details p { color: var(--text-muted); line-height: 1.6; }
 
         /* --- Footer --- */
@@ -340,19 +442,20 @@
             padding: 40px 20px;
             text-align: center;
             border-top: 1px solid var(--glass-border);
-            margin-top: 50px;
+            margin-top: 80px;
+            background: linear-gradient(to top, black, transparent);
         }
 
         .footer-icons { margin: 20px 0; font-size: 2rem; display: flex; justify-content: center; gap: 20px;}
         .footer-icons i { color: var(--text-muted); transition: color 0.3s; }
-        .footer-icons i:hover { color: var(--primary); }
+        .footer-icons i:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
         /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
-            left: 30px; /* RTL - left side is better */
-            background: #25d366;
+            left: 30px; 
+            background: #25d366; /* Keep standard WA color or change to var(--primary) */
             color: white;
             width: 60px;
             height: 60px;
@@ -370,27 +473,27 @@
         .whatsapp-float:hover { transform: scale(1.1); }
 
         /* Animations */
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         @keyframes fadeInUP {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 15px rgba(0, 234, 255, 0.2); }
-            50% { box-shadow: 0 0 30px rgba(0, 234, 255, 0.6); }
-            100% { box-shadow: 0 0 15px rgba(0, 234, 255, 0.2); }
+            0% { box-shadow: 0 0 15px rgba(57, 255, 20, 0.2); }
+            50% { box-shadow: 0 0 35px rgba(57, 255, 20, 0.5); }
+            100% { box-shadow: 0 0 15px rgba(57, 255, 20, 0.2); }
         }
 
         @keyframes borderPulse {
-            0% { border-color: rgba(255, 46, 99, 0.3); }
-            50% { border-color: rgba(255, 46, 99, 0.8); }
-            100% { border-color: rgba(255, 46, 99, 0.3); }
+            0% { border-color: rgba(57, 255, 20, 0.3); }
+            50% { border-color: rgba(57, 255, 20, 1); }
+            100% { border-color: rgba(57, 255, 20, 0.3); }
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
@@ -402,115 +505,165 @@
     <div class="particles"></div>
 
     <section class="hero" id="home">
-        <div class="glass hero-card">
-            <span class="badge">⏳ عرض محدود</span>
-            <h1 class="text-gradient">🔥 باقة 10 ألعاب بسعر خرافي!</h1>
-            <p>احصل على أفضل ألعاب PC و PlayStation بحساب Steam بسعر 150 درهم فقط بدل أكثر من 800 درهم. استمتع بأقوى الألعاب بأقل تكلفة.</p>
+        
+        <div class="hero-content-wrapper">
             
-            <div class="price-box">
-                <span class="old-price">800+ DH</span>
-                <span class="new-price">150 DH</span>
+            <div class="glass hero-card">
+                <span class="badge">⏳ عرض ليموني محدود</span>
+                <h1 class="text-gradient">🔥 باقة 10 ألعاب بسعر خرافي!</h1>
+                <p>احصل على أقوى ألعاب <span class="highlight-lime">PC و PlayStation</span> بحساب Steam أصلي. حزمة الأحلام الآن بين يديك بسعر لا يصدق.</p>
+                
+                <div class="price-box">
+                    <span class="old-price">800+ DH</span>
+                    <span class="new-price">150 DH</span>
+                </div>
+    
+                <div class="cta-group">
+                    <a href="#order" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> اطلب الباقة الآن</a>
+                    <a href="#games" class="btn btn-secondary"><i class="fa-solid fa-gamepad"></i> صور الألعاب</a>
+                </div>
             </div>
 
-            <div class="cta-group">
-                <a href="#order" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i> احصل على الباقة الآن</a>
-                <a href="#games" class="btn btn-secondary"><i class="fa-solid fa-gamepad"></i> شاهد الألعاب</a>
+            <div class="platforms-visual reveal">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/512px-Steam_icon_logo.svg.png" alt="Steam Logo" class="platform-img steam-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/PlayStation_5_DualSense_controller.png/640px-PlayStation_5_DualSense_controller.png" alt="PS5 Controller" class="platform-img ps5-controller">
             </div>
+
         </div>
     </section>
 
     <section id="games" class="reveal">
-        <h2 class="section-title">🎮 الألعاب داخل الباقة</h2>
+        <h2 class="section-title text-gradient">🎮 الألعاب العملاقة داخل الباقة</h2>
         <div class="games-grid">
-            <div class="glass game-card"><i class="fa-solid fa-futbol"></i>FC 26</div>
-            <div class="glass game-card"><i class="fa-solid fa-horse"></i>Red Dead Redemption 2</div>
-            <div class="glass game-card"><i class="fa-solid fa-car-side"></i>GTA V</div>
-            <div class="glass game-card"><i class="fa-solid fa-robot"></i>Cyberpunk 2077</div>
-            <div class="glass game-card"><i class="fa-solid fa-crosshairs"></i>Call of Duty</div>
-            <div class="glass game-card"><i class="fa-solid fa-trophy"></i>FIFA series</div>
-            <div class="glass game-card"><i class="fa-solid fa-flag-checkered"></i>Forza Horizon</div>
-            <div class="glass game-card"><i class="fa-solid fa-khanda"></i>Assassin's Creed</div>
-            <div class="glass game-card"><i class="fa-solid fa-gauge-high"></i>Need for Speed</div>
-            <div class="glass game-card" style="border-color: var(--primary);"><i class="fa-solid fa-gift"></i>+ لعبة مفاجأة إضافية</div>
+            
+            <div class="glass game-card">
+                <img src="https://placehold.co/600x400/000000/39ff14?text=FC+26+Cover+Art" alt="FC 26" class="game-card-bg">
+                <div class="game-card-overlay"></div>
+                <div class="game-card-content">
+                    <h3>FC 26</h3>
+                    <div class="game-platform-icon">
+                        <i class="fa-brands fa-playstation"></i> <i class="fa-brands fa-steam"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass game-card">
+                <img src="https://placehold.co/600x400/550000/ffffff?text=Red+Dead+Redemption+2" alt="Red Dead Redemption 2" class="game-card-bg">
+                 <div class="game-card-overlay"></div>
+                <div class="game-card-content">
+                    <h3>Red Dead Redemption 2</h3>
+                    <div class="game-platform-icon">
+                         <i class="fa-brands fa-steam"></i>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="glass game-card">
+                <img src="https://placehold.co/600x400/1a4d1a/ffffff?text=Grand+Theft+Auto+V" alt="GTA V" class="game-card-bg">
+                 <div class="game-card-overlay"></div>
+                <div class="game-card-content">
+                    <h3>GTA V</h3>
+                     <div class="game-platform-icon">
+                        <i class="fa-brands fa-playstation"></i> <i class="fa-brands fa-steam"></i>
+                    </div>
+                </div>
+            </div>
+
+             <div class="glass game-card">
+                <img src="https://placehold.co/600x400/fcee0a/000000?text=Cyberpunk+2077" alt="Cyberpunk 2077" class="game-card-bg">
+                 <div class="game-card-overlay"></div>
+                <div class="game-card-content">
+                    <h3>Cyberpunk 2077</h3>
+                     <div class="game-platform-icon">
+                        <i class="fa-brands fa-steam"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass game-card" style="background: linear-gradient(45deg, black, var(--glass-bg)); justify-content: center; align-items: center; display: flex;">
+                <div style="text-align: center;">
+                    <i class="fa-solid fa-plus highlight-lime" style="font-size: 3rem;"></i>
+                    <h3 style="margin-top: 15px;">Call of Duty</h3>
+                    <p style="color: var(--text-muted)">و 5 ألعاب أخرى قوية!</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section class="reveal">
-        <h2 class="section-title">💎 لماذا تختار هذه الباقة؟</h2>
+        <h2 class="section-title text-gradient">💎 لماذا تختار هذا العرض؟</h2>
         <div class="features-grid">
             <div class="glass feature-card">
-                <i class="fa-solid fa-tags"></i>
-                <p>سعر منخفض جداً مقارنة بالسوق</p>
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <p>سعر جنوني لن يتكرر (توفير 80%)</p>
             </div>
             <div class="glass feature-card">
-                <i class="fa-solid fa-globe"></i>
-                <p>ألعاب كاملة تعمل أونلاين</p>
+                <i class="fa-brands fa-steam-symbol"></i>
+                <p>حسابات Steam رسمية وآمنة</p>
             </div>
             <div class="glass feature-card">
-                <i class="fa-solid fa-bolt"></i>
-                <p>تسليم سريع بعد الدفع مباشرة</p>
+                <i class="fa-solid fa-bolt-lightning"></i>
+                <p>تسليم صاروخي بعد الدفع</p>
             </div>
             <div class="glass feature-card">
-                <i class="fa-solid fa-headset"></i>
-                <p>دعم فني في حالة وجود أي مشكلة</p>
-            </div>
-            <div class="glass feature-card">
-                <i class="fa-solid fa-key"></i>
-                <p>طريقة سهلة للدخول للحساب والتحميل</p>
+                <i class="fa-solid fa-shield-halved"></i>
+                <p>ضمان تشغيل ودعم فني دائم</p>
             </div>
         </div>
     </section>
 
     <section class="reveal">
-        <h2 class="section-title">⚡ كيف تحصل على الألعاب؟</h2>
+        <h2 class="section-title">⚡ خطوات الحصول على الباقة</h2>
         <div class="steps-container">
             <div class="glass step-card">
                 <div class="step-num">1️⃣</div>
-                <p>قم بالطلب عبر الزر في الأسفل</p>
+                <p>اضغط على زر الطلب بالأسفل</p>
             </div>
             <div class="glass step-card">
                 <div class="step-num">2️⃣</div>
-                <p>ادفع بالطريقة المتاحة والمناسبة لك</p>
+                <p>أكمل عملية الدفع البسيطة</p>
             </div>
             <div class="glass step-card">
                 <div class="step-num">3️⃣</div>
-                <p>نستلم الدفع ونرسل بيانات الحساب</p>
+                <p>استلم بيانات الحساب فوراً</p>
             </div>
             <div class="glass step-card">
                 <div class="step-num">4️⃣</div>
-                <p>سجل الدخول وحمل الألعاب مباشرة</p>
+                <p>ادخل وحمل الألعاب.. واستمتع!</p>
             </div>
         </div>
     </section>
 
     <section class="reveal" id="order">
         <div class="glass urgency-banner">
-            <h2>⏳ الكمية محدودة — السعر قد يعود إلى 800 درهم في أي وقت!</h2>
+            <h2>⏳ تحذير: الكمية محدودة جداً والسعر قد يرتفع في أي لحظة!</h2>
             <div class="countdown" id="timer">02:45:00</div>
             <br><br>
             <a href="https://wa.me/YOUR_PHONE_NUMBER" class="btn btn-primary" style="font-size: 1.5rem; padding: 20px 50px;">
-                <i class="fa-brands fa-whatsapp"></i> اطلب الآن (150 درهم)
+                <i class="fa-brands fa-whatsapp"></i> اطلب الباقة الآن (150 درهم)
             </a>
+            <p style="margin-top: 15px; color: var(--text-muted);">دفع آمن، تسليم فوري عبر الواتساب</p>
         </div>
     </section>
 
     <section class="reveal">
-        <h2 class="section-title">⭐ آراء العملاء</h2>
+        <h2 class="section-title text-gradient">⭐ ماذا يقول اللاعبون؟</h2>
         <div class="testimonials-grid">
             <div class="glass testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"أفضل استثمار سويته، الألعاب شغالة كلها أونلاين والتسليم كان في أقل من 5 دقائق! شكراً لكم."</p>
-                <br><strong>- يوسف م.</strong>
+                <p>"يا جماعة العرض حقيقي! استلمت حساب فيه RDR2 و FC26 وشغالين أونلاين زي الفل. السعر دمار."</p>
+                <br><strong>- كريم أ. (كازابلانكا)</strong>
             </div>
             <div class="glass testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"صراحة السعر خيالي بالنسبة لجودة الألعاب.. الحساب آمن والدعم الفني متجاوب جداً."</p>
-                <br><strong>- أمين ب.</strong>
+                <p>"كنت خايف يكون سكام بس الدعم الفني رد عليا بسرعة واستلمت الحساب في 5 دقايق. أنصحكم فيه."</p>
+                <br><strong>- مهدي س. (الرباط)</strong>
             </div>
             <div class="glass testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"كنت متردد في البداية بس بعد ما جربت GTA V و FC 26 أونلاين، أنصح الكل بهذي الباقة."</p>
-                <br><strong>- رضا ع.</strong>
+                <p>"أفضل صفقة سويتها للـ PC حقي. كمية ألعاب جبارة بسعر لعبة وحدة مستعملة. شكراً لكم!"</p>
+                <br><strong>- عمر ف. (طنجة)</strong>
             </div>
         </div>
     </section>
@@ -519,28 +672,32 @@
         <h2 class="section-title">❓ أسئلة شائعة</h2>
         <div class="faq-container">
             <details class="glass">
-                <summary>هل الألعاب تعمل أونلاين؟ <i class="fa-solid fa-chevron-down"></i></summary>
-                <p>نعم، جميع الألعاب في الباقة تعمل بشكل كامل وتدعم اللعب الجماعي أونلاين بدون أي مشاكل.</p>
+                <summary>هل الألعاب كاملة وتعمل أونلاين؟ <i class="fa-solid fa-chevron-down highlight-lime"></i></summary>
+                <p>نعم بالتأكيد. جميع الألعاب نسخ كاملة (Full Versions) وتدعم اللعب الجماعي (Online Multiplayer) بدون أي قيود.</p>
             </details>
             <details class="glass">
-                <summary>هل الحساب دائم؟ <i class="fa-solid fa-chevron-down"></i></summary>
-                <p>تحصل على حساب جاهز للدخول وتحميل الألعاب، ويبقى معك لتستمتع بالألعاب متى شئت.</p>
+                <summary>هل الحساب دائم وملكي؟ <i class="fa-solid fa-chevron-down highlight-lime"></i></summary>
+                <p>نعم، الحساب يصبح ملكك بالكامل وتستطيع تغيير البيانات، ويبقى معك مدى الحياة لتحميل الألعاب في أي وقت.</p>
+            </details>
+             <details class="glass">
+                <summary>تعمل على PS4/PS5 أم PC فقط؟ <i class="fa-solid fa-chevron-down highlight-lime"></i></summary>
+                <p>الباقة الأساسية هي حسابات Steam للـ PC. ولكن بعض الألعاب في الباقة قد تدعم التشغيل على PlayStation عبر طرق محددة (تواصل معنا للتفاصيل)، لكن التركيز الأساسي هو PC.</p>
             </details>
             <details class="glass">
-                <summary>كم مدة التسليم؟ <i class="fa-solid fa-chevron-down"></i></summary>
-                <p>التسليم فوري أو عادة خلال دقائق معدودة بعد تأكيد عملية الدفع عبر الواتساب.</p>
+                <summary>ما هي طرق الدفع المتاحة؟ <i class="fa-solid fa-chevron-down highlight-lime"></i></summary>
+                <p>نوفر طرق دفع محلية سهلة وسريعة (مثل التحويل البنكي، أو خدمات الدفع الإلكتروني المحلية). تواصل عبر الواتساب لمعرفة الأنسب لك.</p>
             </details>
         </div>
     </section>
 
     <footer class="glass" style="border-radius: 0; border-left: none; border-right: none; border-bottom: none;">
-        <h3 class="text-gradient">🚀 لا تضيع الفرصة، 10 ألعاب قوية بـ 150 درهم فقط</h3>
+        <h3 class="text-gradient" style="font-size: 2rem;">🚀 لا تضيع الفرصة.. ابدأ اللعب اليوم!</h3>
         <div class="footer-icons">
-            <i class="fa-brands fa-cc-visa"></i>
-            <i class="fa-brands fa-cc-mastercard"></i>
-            <i class="fa-brands fa-paypal"></i>
+            <i class="fa-solid fa-gamepad"></i>
+            <i class="fa-brands fa-steam"></i>
+            <i class="fa-brands fa-playstation"></i>
         </div>
-        <p style="color: var(--text-muted);">&copy; 2026 جميع الحقوق محفوظة.</p>
+        <p style="color: var(--text-muted);">&copy; 2024 جميع الحقوق محفوظة. تصميم مخصص للاعبين.</p>
     </footer>
 
     <a href="https://wa.me/YOUR_PHONE_NUMBER" class="whatsapp-float" target="_blank">
@@ -564,7 +721,7 @@
         reveal(); // Trigger on load
 
         // Countdown Timer Script
-        let time = 2 * 3600 + 45 * 60; // 2 hours 45 mins in seconds
+        let time = 2 * 3600 + 45 * 60; // 2 hours 45 mins
         const timerElement = document.getElementById('timer');
         
         setInterval(() => {
