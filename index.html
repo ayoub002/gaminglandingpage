@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="احصل على أفضل باقة 10 ألعاب PC و PlayStation بسعر 150 درهم فقط بدل 800 درهم. عرض محدود!">
+    <title>🔥 باقة 10 ألعاب بسعر خرافي | عرض محدود</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #ff6a00;
+            --secondary: #ff2e63;
+            --accent: #00eaff;
+            --bg-dark: #0f0c29;
+            --bg-mid: #302b63;
+            --bg-light: #24243e;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --text-main: #ffffff;
+            --text-muted: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark), var(--bg-mid), var(--bg-light));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-main);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Particles Background */
+        .particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255, 106, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(0, 234, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(255, 46, 99, 0.15) 0%, transparent 50%);
+        }
+
+        /* Glassmorphism Utility */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Typography */
+        h1, h2, h3 { font-weight: 900; }
+        .text-gradient {
+            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        section {
+            padding: 80px 20px;
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .hero-card {
+            padding: 50px 30px;
+            max-width: 800px;
+            animation: fadeInUP 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 106, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .price-box {
+            display: inline-block;
+            padding: 20px 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 20px rgba(0, 234, 255, 0.2);
+            animation: pulseGlow 2s infinite;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            display: block;
+        }
+
+        .new-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent);
+        }
+
+        .badge {
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--primary);
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: white;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        /* --- Games Section --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-shadow: 0 0 15px var(--accent);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .game-card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            display: block;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 234, 255, 0.3);
+            border-color: var(--accent);
+        }
+
+        /* --- Why Choose Us --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            padding: 30px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent);
+        }
+
+        /* --- Steps Section --- */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step-card {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+        
+        @media (min-width: 768px) {
+            .steps-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .step-card {
+                flex: 1;
+                flex-direction: column;
+                text-align: center;
+            }
+            .step-card:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: -20px;
+                width: 40px;
+                height: 2px;
+                background: var(--accent);
+                box-shadow: 0 0 10px var(--accent);
+            }
+        }
+
+        .step-num {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-shadow: 0 0 15px var(--primary);
+        }
+
+        /* --- Urgency Section --- */
+        .urgency-banner {
+            text-align: center;
+            padding: 40px 20px;
+            border-color: var(--secondary);
+            box-shadow: 0 0 30px rgba(255, 46, 99, 0.2);
+            animation: borderPulse 2s infinite;
+        }
+
+        .urgency-banner h2 { color: var(--secondary); margin-bottom: 20px; }
+        .countdown { font-size: 3rem; font-weight: 900; font-family: monospace; color: white; letter-spacing: 5px; }
+
+        /* --- Testimonials --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card { padding: 30px; }
+        .stars { color: #ffc107; margin-bottom: 15px; font-size: 1.2rem; }
+
+        /* --- FAQ --- */
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        summary {
+            font-size: 1.2rem;
+            font-weight: bold;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker { display: none; }
+        
+        details[open] summary { margin-bottom: 15px; color: var(--accent); }
+        details p { color: var(--text-muted); line-height: 1.6; }
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 50px;
+        }
+
+        .footer-icons { margin: 20px 0; font-size: 2rem; display: flex; justify-content: center; gap: 20px;}
+        .footer-icons i { color: var(--text-muted); transition: color 0.3s; }
+        .footer-icons i:hover { color: var(--primary); }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px; /* RTL - left side is better */
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+            z-index: 100;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* Animations */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeInUP {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(0, 234, 255, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(0, 234, 255, 0.6); }
+            100% { box-shadow: 0 0 15px rgba(0, 234, 255, 0.2); }
+        }
+
+        @keyframes borderPulse {
+            0% { border-color: rgba(255, 46, 99, 0.3); }
+            50% { border-color: rgba(255, 46, 99, 0.8); }
+            100% { border-color: rgba(255, 46, 99, 0.3); }
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <div class="particles"></div>
+
+    <section class="hero" id="home">
+        <div class="glass hero-card">
+            <span class="badge">⏳ عرض محدود</span>
+            <h1 class="text-gradient">🔥 باقة 10 ألعاب بسعر خرافي!</h1>
+            <p>احصل على أفضل ألعاب PC و PlayStation بحساب Steam بسعر 150 درهم فقط بدل أكثر من 800 درهم. استمتع بأقوى الألعاب بأقل تكلفة.</p>
+            
+            <div class="price-box">
+                <span class="old-price">800+ DH</span>
+                <span class="new-price">150 DH</span>
+            </div>
+
+            <div class="cta-group">
+                <a href="#order" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i> احصل على الباقة الآن</a>
+                <a href="#games" class="btn btn-secondary"><i class="fa-solid fa-gamepad"></i> شاهد الألعاب</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="games" class="reveal">
+        <h2 class="section-title">🎮 الألعاب داخل الباقة</h2>
+        <div class="games-grid">
+            <div class="glass game-card"><i class="fa-solid fa-futbol"></i>FC 26</div>
+            <div class="glass game-card"><i class="fa-solid fa-horse"></i>Red Dead Redemption 2</div>
+            <div class="glass game-card"><i class="fa-solid fa-car-side"></i>GTA V</div>
+            <div class="glass game-card"><i class="fa-solid fa-robot"></i>Cyberpunk 2077</div>
+            <div class="glass game-card"><i class="fa-solid fa-crosshairs"></i>Call of Duty</div>
+            <div class="glass game-card"><i class="fa-solid fa-trophy"></i>FIFA series</div>
+            <div class="glass game-card"><i class="fa-solid fa-flag-checkered"></i>Forza Horizon</div>
+            <div class="glass game-card"><i class="fa-solid fa-khanda"></i>Assassin's Creed</div>
+            <div class="glass game-card"><i class="fa-solid fa-gauge-high"></i>Need for Speed</div>
+            <div class="glass game-card" style="border-color: var(--primary);"><i class="fa-solid fa-gift"></i>+ لعبة مفاجأة إضافية</div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <h2 class="section-title">💎 لماذا تختار هذه الباقة؟</h2>
+        <div class="features-grid">
+            <div class="glass feature-card">
+                <i class="fa-solid fa-tags"></i>
+                <p>سعر منخفض جداً مقارنة بالسوق</p>
+            </div>
+            <div class="glass feature-card">
+                <i class="fa-solid fa-globe"></i>
+                <p>ألعاب كاملة تعمل أونلاين</p>
+            </div>
+            <div class="glass feature-card">
+                <i class="fa-solid fa-bolt"></i>
+                <p>تسليم سريع بعد الدفع مباشرة</p>
+            </div>
+            <div class="glass feature-card">
+                <i class="fa-solid fa-headset"></i>
+                <p>دعم فني في حالة وجود أي مشكلة</p>
+            </div>
+            <div class="glass feature-card">
+                <i class="fa-solid fa-key"></i>
+                <p>طريقة سهلة للدخول للحساب والتحميل</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <h2 class="section-title">⚡ كيف تحصل على الألعاب؟</h2>
+        <div class="steps-container">
+            <div class="glass step-card">
+                <div class="step-num">1️⃣</div>
+                <p>قم بالطلب عبر الزر في الأسفل</p>
+            </div>
+            <div class="glass step-card">
+                <div class="step-num">2️⃣</div>
+                <p>ادفع بالطريقة المتاحة والمناسبة لك</p>
+            </div>
+            <div class="glass step-card">
+                <div class="step-num">3️⃣</div>
+                <p>نستلم الدفع ونرسل بيانات الحساب</p>
+            </div>
+            <div class="glass step-card">
+                <div class="step-num">4️⃣</div>
+                <p>سجل الدخول وحمل الألعاب مباشرة</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal" id="order">
+        <div class="glass urgency-banner">
+            <h2>⏳ الكمية محدودة — السعر قد يعود إلى 800 درهم في أي وقت!</h2>
+            <div class="countdown" id="timer">02:45:00</div>
+            <br><br>
+            <a href="https://wa.me/YOUR_PHONE_NUMBER" class="btn btn-primary" style="font-size: 1.5rem; padding: 20px 50px;">
+                <i class="fa-brands fa-whatsapp"></i> اطلب الآن (150 درهم)
+            </a>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <h2 class="section-title">⭐ آراء العملاء</h2>
+        <div class="testimonials-grid">
+            <div class="glass testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"أفضل استثمار سويته، الألعاب شغالة كلها أونلاين والتسليم كان في أقل من 5 دقائق! شكراً لكم."</p>
+                <br><strong>- يوسف م.</strong>
+            </div>
+            <div class="glass testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"صراحة السعر خيالي بالنسبة لجودة الألعاب.. الحساب آمن والدعم الفني متجاوب جداً."</p>
+                <br><strong>- أمين ب.</strong>
+            </div>
+            <div class="glass testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"كنت متردد في البداية بس بعد ما جربت GTA V و FC 26 أونلاين، أنصح الكل بهذي الباقة."</p>
+                <br><strong>- رضا ع.</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <h2 class="section-title">❓ أسئلة شائعة</h2>
+        <div class="faq-container">
+            <details class="glass">
+                <summary>هل الألعاب تعمل أونلاين؟ <i class="fa-solid fa-chevron-down"></i></summary>
+                <p>نعم، جميع الألعاب في الباقة تعمل بشكل كامل وتدعم اللعب الجماعي أونلاين بدون أي مشاكل.</p>
+            </details>
+            <details class="glass">
+                <summary>هل الحساب دائم؟ <i class="fa-solid fa-chevron-down"></i></summary>
+                <p>تحصل على حساب جاهز للدخول وتحميل الألعاب، ويبقى معك لتستمتع بالألعاب متى شئت.</p>
+            </details>
+            <details class="glass">
+                <summary>كم مدة التسليم؟ <i class="fa-solid fa-chevron-down"></i></summary>
+                <p>التسليم فوري أو عادة خلال دقائق معدودة بعد تأكيد عملية الدفع عبر الواتساب.</p>
+            </details>
+        </div>
+    </section>
+
+    <footer class="glass" style="border-radius: 0; border-left: none; border-right: none; border-bottom: none;">
+        <h3 class="text-gradient">🚀 لا تضيع الفرصة، 10 ألعاب قوية بـ 150 درهم فقط</h3>
+        <div class="footer-icons">
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-brands fa-paypal"></i>
+        </div>
+        <p style="color: var(--text-muted);">&copy; 2026 جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Smooth reveal on scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+
+        // Countdown Timer Script
+        let time = 2 * 3600 + 45 * 60; // 2 hours 45 mins in seconds
+        const timerElement = document.getElementById('timer');
+        
+        setInterval(() => {
+            let hours = Math.floor(time / 3600);
+            let minutes = Math.floor((time % 3600) / 60);
+            let seconds = time % 60;
+
+            hours = hours < 10 ? '0' + hours : hours;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            timerElement.textContent = `${hours}:${minutes}:${seconds}`;
+            if(time > 0) time--;
+        }, 1000);
+    </script>
+</body>
+</html>
