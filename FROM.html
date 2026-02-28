@@ -1,142 +1,245 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidature - Sunday Marketing</title>
-    <style>
-        /* Design System - Sunday Marketing */
-        :root {
-            --bg-color: #F5F5DC; /* Beige */
-            --primary-green: #0A3200; /* Dark Green */
-            --accent-green: #14C800; /* Vibrant Green */
-            --soft-pink: #FFC0CB; /* Soft Pink */
-            --text-dark: #1A1A1A;
-        }
+import React, { useState, useEffect } from 'react';
+import { 
+  Target, 
+  Rocket, 
+  Users, 
+  BookOpen, 
+  Palette, 
+  Truck, 
+  TrendingUp, 
+  Save,
+  Trash2,
+  Zap,
+  Star
+} from 'lucide-react';
 
-        body {
-            background-color: var(--bg-color);
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: var(--text-dark);
-            display: flex;
-            justify-content: center;
-            padding: 50px 20px;
-        }
+const App = () => {
+  const [data, setData] = useState({
+    vision: '',
+    target: '',
+    objectives: '',
+    content: '',
+    identity: '',
+    logistics: '',
+    marketing: ''
+  });
 
-        .form-container {
-            background: #ffffff;
-            border: 4px solid var(--primary-green);
-            border-radius: 24px;
-            padding: 40px;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 8px 8px 0px var(--soft-pink);
-        }
+  const [lastSaved, setLastSaved] = useState(null);
 
-        .form-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+  const handleSave = () => {
+    localStorage.setItem('sunday_canvas_data', JSON.stringify(data));
+    setLastSaved(new Date().toLocaleTimeString());
+  };
 
-        .form-header h2 {
-            font-size: 28px;
-            text-transform: uppercase;
-            color: var(--primary-green);
-            margin: 0 0 10px 0;
-            font-weight: 900;
-        }
+  const handleClear = () => {
+    if (window.confirm('Voulez-vous vraiment tout effacer ? (Machi la glace, kolchi ghaymchi)')) {
+      setData({
+        vision: '',
+        target: '',
+        objectives: '',
+        content: '',
+        identity: '',
+        logistics: '',
+        marketing: ''
+      });
+    }
+  };
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+  const updateField = (field, value) => {
+    setData(prev => ({ ...prev, [field]: value }));
+  };
 
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: var(--primary-green);
-            text-transform: uppercase;
-            font-size: 14px;
-        }
+  const sections = [
+    {
+      id: 'vision',
+      title_fr: 'Vision & Positionnement',
+      title_dz: 'الرؤية و الموقِع ديالك',
+      icon: <Rocket size={18} />,
+      placeholder_fr: 'Machi la sauce... Quelle est la vraie mission ?',
+      placeholder_dz: 'شنو هي البصمة اللي بغيتي تخليها فالسوق؟',
+      color: 'bg-[#0D7C66]' // Teal Sunday
+    },
+    {
+      id: 'target',
+      title_fr: 'Public Cible',
+      title_dz: 'شكون هما الـ VIP ديالك؟',
+      icon: <Users size={18} />,
+      placeholder_fr: 'Qui va payer pour ton "I7lawa" ?',
+      placeholder_dz: 'شكون هما الناس لي غادي يستافدو بصح؟',
+      color: 'bg-[#0D7C66]'
+    },
+    {
+      id: 'objectives',
+      title_fr: 'Objectifs Pédagogiques',
+      title_dz: 'شنو غايتعلمو بصح؟',
+      icon: <Target size={18} />,
+      placeholder_fr: 'Results that bring cash...',
+      placeholder_dz: 'شنو هي المهارات اللي غادي يخرجو بيها؟',
+      color: 'bg-[#F1A7B9]' // Pink Sunday
+    },
+    {
+      id: 'content',
+      title_fr: 'Contenu & Structure',
+      title_dz: 'المحتوى و لـ Structure',
+      icon: <BookOpen size={18} />,
+      placeholder_fr: 'Le cœur de la formation (Modules, exercices...)',
+      placeholder_dz: 'شنو غادي تقرّي فهاد السيمانات؟',
+      color: 'bg-[#0D7C66]'
+    },
+    {
+      id: 'identity',
+      title_fr: 'Identité Creative & Ton',
+      title_dz: 'الستيل و الـ Vibe',
+      icon: <Palette size={18} />,
+      placeholder_fr: 'Machi la glace, du visuel qui claque !',
+      placeholder_dz: 'شنو هو الستيل و الصورة اللي بغيتي تعطي؟',
+      color: 'bg-[#F1A7B9]'
+    },
+    {
+      id: 'logistics',
+      title_fr: 'Logistique & Format',
+      title_dz: 'كيفاش غاتوصل هادشي؟',
+      icon: <Truck size={18} />,
+      placeholder_fr: 'Zoom, PDF, Live, Replays...',
+      placeholder_dz: 'أونلاين، حضوري، فيديوهات؟',
+      color: 'bg-[#0D7C66]'
+    },
+    {
+      id: 'marketing',
+      title_fr: 'Marketing & Business',
+      title_dz: 'البيع و الـ Promotion',
+      icon: <TrendingUp size={18} />,
+      placeholder_fr: 'Pricing, ads, landing page...',
+      placeholder_dz: 'كيفاش غادي تبيع هاد لـ Immense value؟',
+      color: 'bg-[#0D7C66]'
+    }
+  ];
 
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid var(--primary-green);
-            border-radius: 12px;
-            font-size: 16px;
-            background-color: #fafafa;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
+  return (
+    <div className="min-h-screen bg-[#FDF8F3] p-4 md:p-8 font-sans text-[#1A1A1A]">
+      {/* Navbar Style Sunday */}
+      <nav className="max-w-7xl mx-auto flex items-center justify-between mb-12">
+        <div className="flex items-center gap-2">
+           <div className="bg-[#F1A7B9] text-white px-3 py-1 rounded-full font-black text-xl italic tracking-tighter shadow-sm">
+             SUNDAY
+           </div>
+           <span className="hidden md:block font-bold text-[#0D7C66] text-sm uppercase tracking-widest">
+             Marketing
+           </span>
+        </div>
+        
+        <div className="flex items-center gap-4">
+          <button className="hidden md:block text-xs font-bold uppercase tracking-tighter hover:text-[#0D7C66]">Modules</button>
+          <button className="hidden md:block text-xs font-bold uppercase tracking-tighter hover:text-[#0D7C66]">Instructors</button>
+          <button className="bg-[#0D7C66] text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg hover:opacity-90 transition-all">
+            Sunday Ads
+          </button>
+        </div>
+      </nav>
 
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent-green);
-            background-color: #fff;
-            box-shadow: 0 0 0 3px rgba(20, 200, 0, 0.2);
-        }
+      {/* Hero Header */}
+      <header className="max-w-7xl mx-auto mb-12 text-center">
+        <div className="inline-flex items-center gap-2 bg-[#0D7C66] text-white px-6 py-2 rounded-full mb-6 shadow-md border-2 border-white/20">
+          <Zap size={16} fill="white" />
+          <span className="text-xs md:text-sm font-bold tracking-tight">Cadrage : Content that brings cash.</span>
+          <Zap size={16} fill="white" />
+        </div>
+        
+        <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-4 italic">
+          MACHI LA SAUCE, <br/>
+          <span className="text-[#F1A7B9] underline decoration-8 decoration-[#0D7C66]/20 underline-offset-8 italic">W MACHI LA GLACE</span>
+        </h1>
+        <p className="text-xl md:text-2xl font-medium text-slate-500 max-w-2xl mx-auto mt-6">
+          This is <span className="text-[#0D7C66] font-bold">I7lawa</span> of planning your next training.
+        </p>
+      </header>
 
-        .submit-btn {
-            width: 100%;
-            background-color: var(--primary-green);
-            color: #fff;
-            border: none;
-            padding: 16px;
-            font-size: 18px;
-            font-weight: 900;
-            text-transform: uppercase;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
+      {/* Action Bar */}
+      <div className="max-w-7xl mx-auto mb-8 flex items-center justify-end gap-3">
+          {lastSaved && (
+            <span className="text-[10px] font-black uppercase text-[#0D7C66] bg-white border border-[#0D7C66] px-3 py-1 rounded-full">
+              Saved at {lastSaved}
+            </span>
+          )}
+          <button onClick={handleClear} className="p-2 text-slate-400 hover:text-red-500 transition-colors">
+            <Trash2 size={20} />
+          </button>
+          <button onClick={handleSave} className="flex items-center gap-2 bg-[#0D7C66] text-white px-6 py-3 rounded-2xl font-black uppercase tracking-widest shadow-xl hover:-translate-y-1 transition-all">
+            <Save size={18} /> Save Progress
+          </button>
+      </div>
 
-        .submit-btn:hover {
-            background-color: var(--accent-green);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(20, 200, 0, 0.3);
-        }
-    </style>
-</head>
-<body>
-
-    <div class="form-container">
-        <div class="form-header">
-            <h2>Prêt à level up ? 🚀</h2>
-            <p>Remplis ce form pour réserver ta place.</p>
+      {/* Canvas Grid */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 pb-20">
+        
+        {/* Main Column (left/center) */}
+        <div className="md:col-span-8 space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <CanvasBox section={sections[0]} value={data.vision} onChange={updateField} />
+            <CanvasBox section={sections[1]} value={data.target} onChange={updateField} />
+          </div>
+          
+          <CanvasBox section={sections[3]} value={data.content} onChange={updateField} height="h-[400px]" large />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <CanvasBox section={sections[5]} value={data.logistics} onChange={updateField} />
+            <CanvasBox section={sections[6]} value={data.marketing} onChange={updateField} />
+          </div>
         </div>
 
-        <form action="TON_LIEN_ICI" method="POST">
-            
-            <div class="form-group">
-                <label for="name">Nom Complet</label>
-                <input type="text" id="name" name="name" placeholder="John Doe" required>
-            </div>
+        {/* Side Column (right) */}
+        <div className="md:col-span-4 space-y-6">
+          <CanvasBox section={sections[2]} value={data.objectives} onChange={updateField} height="h-[350px]" />
+          <CanvasBox section={sections[4]} value={data.identity} onChange={updateField} height="h-[350px]" />
+          
+          {/* Sunday Tip Card */}
+          <div className="bg-[#0D7C66] rounded-[40px] p-8 text-white relative overflow-hidden shadow-2xl">
+            <Star className="absolute -top-4 -right-4 text-[#F1A7B9] opacity-30 rotate-12" size={100} fill="currentColor" />
+            <h4 className="font-black text-2xl italic uppercase mb-4 tracking-tighter">Sunday Tip</h4>
+            <p className="text-sm leading-relaxed font-medium opacity-90">
+              "Focus sur l'expérience, machi ghir l'information. Le but c'est que l'étudiant ybda y-implémenter ghedda f l'monday."
+            </p>
+          </div>
+        </div>
+      </div>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="john@example.com" required>
-            </div>
-
-            <div class="form-group">
-                <label for="whatsapp">Numéro WhatsApp</label>
-                <input type="tel" id="whatsapp" name="whatsapp" placeholder="+212 6 XX XX XX XX" required>
-            </div>
-
-            <div class="form-group">
-                <label for="portfolio">Lien Portfolio / Instagram (Optionnel)</label>
-                <input type="url" id="portfolio" name="portfolio" placeholder="Behance, Dribbble, Insta...">
-            </div>
-
-            <div class="form-group">
-                <label for="motivation">Pourquoi tu veux rejoindre le programme ?</label>
-                <textarea id="motivation" name="motivation" rows="4" placeholder="Dis-nous tout..." required></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn">Envoyer ma candidature 🔥</button>
-        </form>
+      {/* Footer */}
+      <footer className="max-w-7xl mx-auto border-t border-slate-200 py-10 flex flex-col items-center">
+        <div className="bg-[#F1A7B9] text-white px-8 py-3 rounded-full font-black text-lg italic shadow-lg mb-4">
+           APPLY NOW
+        </div>
+        <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">
+          © 2024 Sunday Marketing — I7lawa of training
+        </p>
+      </footer>
     </div>
+  );
+};
 
-</body>
-</html>
+const CanvasBox = ({ section, value, onChange, height = "h-[220px]", large = false }) => {
+  return (
+    <div className={`group flex flex-col rounded-[32px] border-4 border-white bg-white shadow-xl hover:shadow-2xl transition-all overflow-hidden`}>
+      <div className={`${section.color} px-6 py-4 flex items-center justify-between text-white`}>
+        <div className="flex items-center gap-3">
+          <div className="p-2 bg-white/20 rounded-xl backdrop-blur-md">
+            {section.icon}
+          </div>
+          <div>
+            <h3 className="font-black text-xs uppercase tracking-tighter leading-none italic">{section.title_fr}</h3>
+            <p className="text-[10px] font-bold font-arabic opacity-80 mt-1">{section.title_dz}</p>
+          </div>
+        </div>
+      </div>
+      <div className={`p-6 flex-1 flex flex-col ${height}`}>
+        <textarea
+          className="w-full h-full bg-transparent border-none focus:ring-0 text-lg font-medium text-slate-700 placeholder:text-slate-200 resize-none leading-snug italic"
+          placeholder={`${section.placeholder_fr}\n${section.placeholder_dz}`}
+          value={value}
+          onChange={(e) => onChange(section.id, e.target.value)}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default App;
